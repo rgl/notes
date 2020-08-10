@@ -11,7 +11,7 @@ type azurekeyvault.Wrapper
   func (v *Wrapper) Encrypt(ctx context.Context, plaintext, aad []byte) (blob *wrapping.EncryptedBlobInfo, err error) {
     return EncryptedBlobInfo {
       cipherText, IV = AES-256-GCM-AEAD(key, plaintext, aad)
-      keyID, wrappedKey = azureKeyVault.wrapKey(RSA-OAEP-256, key) // https://docs.microsoft.com/en-us/rest/api/keyvault/wrapkey/wrapkey
+      keyID, wrappedKey = azureKeyVault.wrapKey(keyName, RSA-OAEP-256, key) // https://docs.microsoft.com/en-us/rest/api/keyvault/wrapkey/wrapkey
     }
 ```
 
